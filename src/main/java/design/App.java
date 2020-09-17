@@ -3,6 +3,8 @@ package design;
 import design.patterns.builder.User;
 import design.patterns.prototype.PrototypeFactory;
 import design.patterns.prototype.PrototypeFactory.ModelType;
+import design.patterns.singleton.LazySimpleton;
+import design.patterns.singleton.SimpleSingleton;
 
 /**
  * Hello world!
@@ -34,6 +36,24 @@ public class App {
         System.out.println(albumPrototype);
 
         String showPrototype  = PrototypeFactory.getInstance(ModelType.SHOW).toString();
-        System.out.println(showPrototype);        
+        System.out.println(showPrototype);   
+        
+        SimpleSingleton ss = SimpleSingleton.INSTANCE;
+        ss.setVal(10);
+        System.out.println(ss.getVal());
+
+        SimpleSingleton ss2 = SimpleSingleton.INSTANCE;
+        System.out.println(ss2.getVal());
+
+        assert ss.getVal() == ss2.getVal();
+
+        LazySimpleton ls = LazySimpleton.init();
+        ls.setVal(10);
+        System.out.println(ls.getVal());
+
+        LazySimpleton ls2 = LazySimpleton.init();
+        System.out.println(ls2.getVal());        
+
+        assert ls.equals(ls2);
     }
 }
