@@ -14,6 +14,7 @@ import design.patterns.singleton.SimpleSingleton;
  */
 public class App {
     public static void main(String[] args) throws CloneNotSupportedException {
+        // Builder Pattern Tests
         User a = new User.UserBuilder("Adebayo", "Salami").build();
         System.out.println(a);
 
@@ -31,6 +32,7 @@ public class App {
                 .phone("08089489101").build();
         System.out.println(e);
 
+        // Prototype Pattern Tests
         String moviePrototype  = PrototypeFactory.getInstance(ModelType.MOVIE).toString();
         System.out.println(moviePrototype);
 
@@ -40,6 +42,7 @@ public class App {
         String showPrototype  = PrototypeFactory.getInstance(ModelType.SHOW).toString();
         System.out.println(showPrototype);   
         
+        // Singleton Pattern Tests
         SimpleSingleton ss = SimpleSingleton.INSTANCE;
         ss.setVal(10);
         System.out.println(ss.getVal());
@@ -58,6 +61,7 @@ public class App {
 
         assert ls.equals(ls2);
 
+        // Factory Pattern Tests
         CarFactory.buildCar(CarModel.HATCH_BACK);
         CarFactory.buildCar(CarModel.LUXURY);
         CarFactory.buildCar(CarModel.SEDAN);
