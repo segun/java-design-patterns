@@ -1,6 +1,8 @@
 package design;
 
 import design.patterns.builder.User;
+import design.patterns.factory.CarFactory;
+import design.patterns.factory.CarModel;
 import design.patterns.prototype.PrototypeFactory;
 import design.patterns.prototype.PrototypeFactory.ModelType;
 import design.patterns.singleton.LazySimpleton;
@@ -55,5 +57,10 @@ public class App {
         System.out.println(ls2.getVal());        
 
         assert ls.equals(ls2);
+
+        CarFactory.buildCar(CarModel.HATCH_BACK);
+        CarFactory.buildCar(CarModel.LUXURY);
+        CarFactory.buildCar(CarModel.SEDAN);
+        CarFactory.buildCar(CarModel.SUV);
     }
 }
